@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<!-- 简单的自动旋转3D建筑物 -->
+<!-- by BluefishV-bilibili -->
+<style>
+html,body{height:100%;width:100%;perspective:700px;}
+*{margin:0}
+div,b,i{position:absolute;transform-style:preserve-3d}
+#city3D{
+/*
+width:400px;
+height:400px;*/
+background:#accdf9;
+margin:auto;
+top:0;right:0;left:0;bottom:0;
+border:10px solid #5ba8e1;
+transform:rotateX(60deg) rotateZ(-60deg) rotateY(-20deg);
+
+}
+#city3D b{
+height:100%;
+background-color:rgba(176,208,223,0.9);
+transform:rotateX(90deg);
+transform-origin:0 0;
+}
+#city3D b > b {
+background-color:rgba(128,174,197,0.9);
+transform:rotateY(90deg);
+}
+#city3D b > b > b{
+background-color:rgba(176,208,223,0.9);
+transform:rotateY(90deg);
+transform-origin:100% 0;
+right:0;
+}
+#city3D b > b > b > b{
+background-color:rgba(128,174,197,0.9);
+transform:rotateY(90deg);
+transform-origin:0 100%;
+left:0;
+}
+#city3D b > b > b > b > i{
+background-color:rgba(176,208,223,0.9);
+transform:rotateX(-90deg);
+transform-origin:0 100%;
+bottom:1px;
+}
+#city3D b > b > b > b > i > i{
+background-color:rgba(176,208,223,0.9);
+transform:rotateX(-90deg);
+transform-origin:0 0;
+bottom:1px;
+}
+#city3D div.a b{
+background-image:url("images/a.jpg");
+}
+</style>
+<body>
+<h1><font size="8">3D</font></h1>
+<div id="city3D" style="width:500px;height:500px">
+<div style="height:120px;top:0;left:0;">
+<b style="width:30px;background-image:url(images/c.png);">
+<b style="width:40px;background-image:url(images/c.png);">
+<b style="width:30px;background-image:url(images/c.png);">
+<b style="width:40px;background-image:url(images/c.png);">
+<i style="width:40px;height:30px;background-image:url(images/c.png);">
+</i>
+</b>
+</b>
+</b>
+</b>
+</div>
+
+
+<div style="height:200px;top:120px;left:120px;">
+<b style="width:200px;background-image:url(images/a.png);">
+<i style="border:100px solid #000;border-color:rgba(176,208,223,0.9) transparent transparent transparent;top:200px;"></i>
+<b style="width:200px;background-image:url(images/a.png);">
+<b style="width:200px;background-image:url(images/a.png);">
+<i style="border:100px solid #000;border-color:rgba(176,208,223,0.9) transparent transparent transparent;transform-origin:-100% 300%;transform:rotateY(0deg);top:200px;"></i>
+<b style="width:200px;background-image:url(images/a.png);">
+<i style="width:200px;height:155px;transform:rotateX(225deg);background-image:url(images/b.png);">
+<i style="width:200px;height:146px;transform:rotateX(-88deg);background-image:url(images/b.png);">
+</i>
+</i>
+</b>
+</b>
+</b>
+</b>
+</div>
+</div>
+<script>
+var z=0;
+var x=60;//60
+var y=0;
+window.setInterval(change,100);
+function change(){
+/*var sz=document.getElementById("city3D").transform*/
+z=z+2;
+x=x+1;
+y=y+1;
+var ls=document.getElementById("city3D");
+var zdeg=z+"deg";
+var xdeg=x+"deg";
+var ydeg=y+"deg";
+ls.style.transform="rotateZ("+zdeg+") rotateX("+xdeg+") rotateY("+ydeg+")";
+}
+</script>
+</body>
+</html>
